@@ -2,6 +2,8 @@
 
 This is my implementation of the **Raspberry Pi Planet Finder** project originally created by [Snowbiscuit](https://www.instructables.com/member/snowbiscuit/). This project creates a DIY digital navigation tool for stargazing, allowing you to automatically orient a telescope toward a chosen planet using real-time data and stepper motors.
 
+- Naledi means "star" in SeSotho.
+
 ---
 
 ## Demo
