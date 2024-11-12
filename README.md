@@ -4,6 +4,10 @@ This is my implementation of the **Raspberry Pi Planet Finder** project original
 
 - Naledi means "star" in SeSotho.
 
+## Important Note
+
+The planet finder can only find objects catalogued in the JPL Horizons [on-line solar system data](https://ssd.jpl.nasa.gov/horizons/app.html#/) and ephemeris computation service. So this can only find objects in the Solar System. Deep sky objects are not included.
+
 ---
 
 ## Demo
