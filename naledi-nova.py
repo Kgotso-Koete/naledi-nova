@@ -209,6 +209,17 @@ In each step of the loop, the moveStepper function:
 Since this motor has 512 half-steps per full rotation, you need to call moveStepper with stepsNeeded equal 
 to 512 to make it turn 360° (one full rotation).
 
+
+The Loop Structure in moveStepper
+Outer Loop (for i in range(stepsNeeded)): 
+	Repeats the full sequence for the required number of steps (stepsNeeded), which determines how far the motor should turn.
+Half-Step Loop (for halfstep in range(8)): 
+	Cycles through each sub-array in halfstep_seq, setting the output state for each half-step.
+Pin Loop (for pin in range(4)): 
+	Sets each GPIO pin (axis[pin]) on or off according to the halfstep_seq array, which controls the four motor coils.
+
+time.sleep(0.002): Adds a delay between half-steps, controlling the motor’s speed. Adjusting this delay changes the motor’s rotation speed, but a very short delay may lead to issues if the motor is too fast to respond accurately.
+
 """
 
 # Move a stepper motor forward by a specified number of steps.
@@ -273,7 +284,7 @@ while inSetUp:
 lcd.clear()
 lcd.write_string("Welcome to")
 lcd.crlf()
-lcd.write_string("Planet Finder")
+lcd.write_string("Naledi Nova -> *")
 time.sleep(2)
 
 lcd.clear()
