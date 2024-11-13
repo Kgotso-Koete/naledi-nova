@@ -2,4 +2,9 @@ __pychache__/
 db.sqlite3
 *.pyc.env
 .env
+.env-naledi-nova
+env-naledi-nova
+/env-naledi-nova/
+env-naledi-nova/
+env-naledi-nova/**
 main/.env

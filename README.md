@@ -71,13 +71,34 @@ Here are the hardware components and tools required to build this project, follo
 
 ## Technology Stack
 
-- **Programming Language**: Python 3
+- **Programming Language**: Python 3.7.3
 - **Libraries**:
-  - **RPi.GPIO**: For controlling GPIO pins on the Raspberry Pi
-  - **RPLCD**: To control the 16x2 LCD screen
-  - **Astroquery**: To fetch astronomical data from JPL Horizons API
+  - **astroquery==0.4.7**: To fetch astronomical data from JPL Horizons API
+  - **RPi.GPIO==0.7.0**: For controlling GPIO pins on the Raspberry Pi
+  - **RPLCD==1.3.1**: To control the 16x2 LCD screen
+  
 - **Additional Software**:
   - **I2C Configuration**: Ensure I2C is enabled on the Raspberry Pi for LCD communication
+
+- **Raspberry Pi operating system version**: 
+    OS info based on command `cat /etc/os-release`
+    
+	PRETTY_NAME="Raspbian GNU/Linux 10 (buster)"
+	NAME="Raspbian GNU/Linux"
+	VERSION_ID="10"
+	VERSION="10 (buster)"
+	VERSION_CODENAME=buster
+	ID=raspbian
+	ID_LIKE=debian
+	HOME_URL="http://www.raspbian.org/"
+	SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
+	BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
+     
+    OS bit info based on command `getconf LONG_BIT`
+	32
+
+    OS cpu info based on command `uname -m`
+	armv7l
 
 ---
 
@@ -97,13 +118,21 @@ The project was inspired by [Raspberry Pi Planet Finder](https://www.instructabl
 
 ### 2. Software Setup
 
-- **Install Dependencies**:
-  ```bash
-  sudo apt-get install python3-pip
-  pip3 install RPi.GPIO RPLCD astroquery
-  ```
-- Enable I2C on the Raspberry Pi: Run sudo raspi-config and enable I2C under "Interface Options."
-- Clone the Repository: Download this project to your Raspberry Pi.
+1. Enable I2C on the Raspberry Pi: Run sudo raspi-config and enable I2C under "Interface Options."
+2. Clone the Repository: Download this project to your Raspberry Pi.
+3. Install [Python 3.7.3](https://www.python.org/downloads/release/python-372/).
+4. Clone this repository: `git clone ??`.
+5. `cd` into `naledi-nova`: `cd naledi-nova`.
+6. Install [virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtualenv/#installing-virtualenv).
+7. Create a new virtualenv called "env-naledi-nova": `python3 -m venv env-naledi-nova`.
+8. Set the local virtualenv to "env-naledi-nova
+": `source env-naledi-nova/bin/activate`.
+   If all went well then your command line prompt should now start with `(env-naledi-nova)`. To deactivate navigate to the project directory and run the command `deactivate`
+9. Install the required packages: `pip3 install -r requirements.txt`
+10.Set up a background worker: 
+   run `crontab -e` 
+   add the line`@reboot /home/kgotso-koete/Documents/Projects/naledi-nova/env-naledi-nova/bin/python /home/kgotso-koete/Documents/Projects/naledi-nova/naledi-nova.py`
+
 
 ### 3. Running the Code
 
