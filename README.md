@@ -121,8 +121,8 @@ The project was inspired by [Raspberry Pi Planet Finder](https://www.instructabl
 1. Enable I2C on the Raspberry Pi: Run sudo raspi-config and enable I2C under "Interface Options."
 2. Clone the Repository: Download this project to your Raspberry Pi.
 3. Install [Python 3.7.3](https://www.python.org/downloads/release/python-372/).
-4. Clone this repository: `git clone ??`.
-5. `cd` into `naledi-nova`: `cd naledi-nova`.
+4. Clone this repository: `git clone https://github.com/Kgotso-Koete/naledi-nova`.
+5. Move into `naledi-nova` folder: `cd naledi-nova`.
 6. Install [virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtualenv/#installing-virtualenv).
 7. Create a new virtualenv called "env-naledi-nova": `python3 -m venv env-naledi-nova`.
 8. Set the local virtualenv to "env-naledi-nova
@@ -132,14 +132,8 @@ The project was inspired by [Raspberry Pi Planet Finder](https://www.instructabl
 10.Set up a background worker: 
    run `crontab -e` 
    add the line`@reboot /home/kgotso-koete/Documents/Projects/naledi-nova/env-naledi-nova/bin/python /home/kgotso-koete/Documents/Projects/naledi-nova/naledi-nova.py`
+   test if the virtual environment will run with `/home/kgotso-koete/Documents/Projects/naledi-nova/env-naledi-nova/bin/python /home/kgotso-koete/Documents/Projects/naledi-nova/naledi-nova.py`
 
-
-### 3. Running the Code
-
----
-
-- Execute the script 'python3 planet_finder.py' to test the code
-- Set up a background process (cron job) using instructions in the tutorial
 
 ---
 
