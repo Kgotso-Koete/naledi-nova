@@ -2,7 +2,7 @@
 
 This is my implementation of the **Raspberry Pi Planet Finder** project originally created by [Snowbiscuit](https://www.instructables.com/member/snowbiscuit/). This project creates a DIY digital navigation tool for stargazing, allowing you to automatically orient a telescope toward a chosen planet using real-time data and stepper motors.
 
-- Naledi means "star" in SeSotho.
+- Naledi means "star" in Sesotho.
 
 ## Important Note
 
@@ -12,13 +12,21 @@ The planet finder can only find objects catalogued in the JPL Horizons [on-line 
 
 ## Demo
 
-[Link to Demo](?)
+[Link to video demo](https://youtube.com/shorts/owRVBsjnpKs?feature=share)
 
 ---
 
-## Screenshot
+## Images
 
-_Include a screenshot of your project in action, e.g., displaying planet data on the LCD screen or the telescope pointing to a planet._
+|                  Naledi Nova Front                   |                  Telescope Not In Use                   |
+| :--------------------------------------------------: | :-----------------------------------------------------: |
+| ![](/images/my-implementation/naledi-nova-front.jpg) | ![](/images/my-implementation/telescope-not-in-use.jpg) |
+
+|           Telescope In Use 1 (Moon viewing)           |           Telescope In Use 2 (Moon viewing)           |
+| :---------------------------------------------------: | :---------------------------------------------------: |
+| ![](/images/my-implementation/telescope-in-use-1.jpg) | ![](/images/my-implementation/telescope-in-use-2.jpg) |
+
+---
 
 ## Project Overview
 
@@ -76,29 +84,27 @@ Here are the hardware components and tools required to build this project, follo
   - **astroquery==0.4.7**: To fetch astronomical data from JPL Horizons API
   - **RPi.GPIO==0.7.0**: For controlling GPIO pins on the Raspberry Pi
   - **RPLCD==1.3.1**: To control the 16x2 LCD screen
-  
 - **Additional Software**:
   - **I2C Configuration**: Ensure I2C is enabled on the Raspberry Pi for LCD communication
+- **Raspberry Pi operating system version preconfigured on Astroberry Image**:
+  OS info based on command `cat /etc/os-release`
 
-- **Raspberry Pi operating system version**: 
-    OS info based on command `cat /etc/os-release`
-    
-	PRETTY_NAME="Raspbian GNU/Linux 10 (buster)"
-	NAME="Raspbian GNU/Linux"
-	VERSION_ID="10"
-	VERSION="10 (buster)"
-	VERSION_CODENAME=buster
-	ID=raspbian
-	ID_LIKE=debian
-	HOME_URL="http://www.raspbian.org/"
-	SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
-	BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
-     
-    OS bit info based on command `getconf LONG_BIT`
-	32
+  PRETTY_NAME="Raspbian GNU/Linux 10 (buster)"
+  NAME="Raspbian GNU/Linux"
+  VERSION_ID="10"
+  VERSION="10 (buster)"
+  VERSION_CODENAME=buster
+  ID=raspbian
+  ID_LIKE=debian
+  HOME_URL="http://www.raspbian.org/"
+  SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
+  BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
 
-    OS cpu info based on command `uname -m`
-	armv7l
+  OS bit info based on command `getconf LONG_BIT`
+  32
+
+  OS cpu info based on command `uname -m`
+  armv7l
 
 ---
 
@@ -126,14 +132,13 @@ The project was inspired by [Raspberry Pi Planet Finder](https://www.instructabl
 6. Install [virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtualenv/#installing-virtualenv).
 7. Create a new virtualenv called "env-naledi-nova": `python3 -m venv env-naledi-nova`.
 8. Set the local virtualenv to "env-naledi-nova
-": `source env-naledi-nova/bin/activate`.
+   ": `source env-naledi-nova/bin/activate`.
    If all went well then your command line prompt should now start with `(env-naledi-nova)`. To deactivate navigate to the project directory and run the command `deactivate`
 9. Install the required packages: `pip3 install -r requirements.txt`
-10.Set up a background worker: 
-   run `crontab -e` 
+   10.Set up a background worker:
+   run `crontab -e`
    add the line`@reboot /home/kgotso-koete/Documents/Projects/naledi-nova/env-naledi-nova/bin/python /home/kgotso-koete/Documents/Projects/naledi-nova/naledi-nova.py`
    test if the virtual environment will run with `/home/kgotso-koete/Documents/Projects/naledi-nova/env-naledi-nova/bin/python /home/kgotso-koete/Documents/Projects/naledi-nova/naledi-nova.py`
-
 
 ---
 
@@ -143,12 +148,27 @@ Special thanks to Snowbiscuit for creating a really cool astronomy project [tuto
 
 ---
 
+## Experiment outcomes
+
+It was a good experiment because I got to work on a project that involved both the Raspberry Pi and astronomy:
+
+Notes
+
+1. Raspberry Pi's are expensive in my part of the world. It would be better to wire everything to an extension board so that the Pi is easy to swap out and use in another project.
+2. I was planning on adding a laser diode (one that is legal and acceptable to use) on the telescope finder/pointer but could not find one that could cast a visible ray into the sky.
+3. JPL Horizons [on-line solar system data](https://ssd.jpl.nasa.gov/horizons/app.html#/) and ephemeris API only covers objects in the Solar System. Deep sky objects are not included. Big objects on our solar system are easier to find with a mini-dobsonian telescope compared to deep sky objects.
+4. Having to first point north and then navigate north and then point to an object makes this not as reliable. I can't figure out if and how to take the magnetic declination/variation from Johannesburg into account. There must be another way, a dummy proof way.
+
+So it's not worth developing this project further other than wiring everything to the extension board, I will look into Digital Setting Circles instead.
+
+---
+
 ### License
 
 The codebase is MIT licensed unless otherwise specified.
 
 ---
 
-To be modified further by Kgotso Koete
+To be modified further, by Kgotso Koete
 <br/>
 Johannesburg, South Africa
