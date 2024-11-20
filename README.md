@@ -18,6 +18,10 @@ The planet finder can only find objects catalogued in the JPL Horizons [on-line 
 
 ## Images
 
+|               Naledi Nova Front (with T-Cobbler)               |               Naledi Nova Inside (with T-Cobbler)               |
+| :------------------------------------------------------------: | :-------------------------------------------------------------: |
+| ![](/images/my-implementation/naledi-nova-front-t-cobbler.jpg) | ![](/images/my-implementation/naledi-nova-inside-t-cobbler.jpg) |
+
 |                  Naledi Nova Front                   |                  Telescope Not In Use                   |
 | :--------------------------------------------------: | :-----------------------------------------------------: |
 | ![](/images/my-implementation/naledi-nova-front.jpg) | ![](/images/my-implementation/telescope-not-in-use.jpg) |
